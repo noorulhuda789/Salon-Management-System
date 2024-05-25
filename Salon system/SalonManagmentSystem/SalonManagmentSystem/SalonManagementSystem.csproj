@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9B92DB2-CF5A-431B-865C-037C4349BF42}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SalonManagmentSystem</RootNamespace>
+    <AssemblyName>SalonManagmentSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\Appointment.cs" />
+    <Compile Include="BL\company.cs" />
+    <Compile Include="BL\Customer.cs" />
+    <Compile Include="BL\CustomerType.cs" />
+    <Compile Include="BL\Employee.cs" />
+    <Compile Include="BL\EmployeeNotification.cs" />
+    <Compile Include="BL\EmployeeSalary.cs" />
+    <Compile Include="BL\Lookup.cs" />
+    <Compile Include="BL\Notification.cs" />
+    <Compile Include="BL\Person.cs" />
+    <Compile Include="BL\product.cs" />
+    <Compile Include="BL\productsType.cs" />
+    <Compile Include="BL\Service.cs" />
+    <Compile Include="BL\ServiceType.cs" />
+    <Compile Include="BL\supplier.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="CrystalReports\CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CrystalReport3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CrystalReport4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CrystalReport5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\Profit_Loss.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profit_Loss.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DL\AppointmentDL.cs" />
+    <Compile Include="DL\CustomerDL.cs" />
+    <Compile Include="DL\CustomerTypeDL.cs" />
+    <Compile Include="DL\companyDL.cs" />
+    <Compile Include="DL\DataHandler.cs" />
+    <Compile Include="DL\EmployeeDL.cs" />
+    <Compile Include="DL\NotificationDL.cs" />
+    <Compile Include="DL\SalaryDL.cs" />
+    <Compile Include="DL\ServiceDL.cs" />
+    <Compile Include="DL\LookupDL.cs" />
+    <Compile Include="DL\productDL.cs" />
+    <Compile Include="DL\productTypeDl.cs" />
+    <Compile Include="DL\supplierDL.cs" />
+    <Compile Include="UI\AppointmentUi\addAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AppointmentUi\addAppointment.Designer.cs">
+      <DependentUpon>addAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AppointmentUi\InvoicePrinter.cs" />
+    <Compile Include="UI\AppointmentUi\updateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AppointmentUi\updateAppointment.Designer.cs">
+      <DependentUpon>updateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AppointmentUi\viewAppointments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AppointmentUi\viewAppointments.Designer.cs">
+      <DependentUpon>viewAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\center_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\center_uc.Designer.cs">
+      <DependentUpon>center_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\addCustomerTypes_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\addCustomerTypes_uc.Designer.cs">
+      <DependentUpon>addCustomerTypes_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\addCustomer_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\addCustomer_uc.Designer.cs">
+      <DependentUpon>addCustomer_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomerType.Designer.cs">
+      <DependentUpon>updateCustomerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\generateSalaries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\generateSalaries.Designer.cs">
+      <DependentUpon>generateSalaries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\markAttendance_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\markAttendance_uc.Designer.cs">
+      <DependentUpon>markAttendance_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updateAttendance_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updateAttendance_uc.Designer.cs">
+      <DependentUpon>updateAttendance_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updtAttendPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updtAttendPopUp.Designer.cs">
+      <DependentUpon>updtAttendPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\userRoles_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\userRoles_uc.Designer.cs">
+      <DependentUpon>userRoles_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomer.Designer.cs">
+      <DependentUpon>updateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomer_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\updateCustomer_uc.Designer.cs">
+      <DependentUpon>updateCustomer_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\viewCustomerTypes_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\viewCustomerTypes_uc.Designer.cs">
+      <DependentUpon>viewCustomerTypes_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomersUi\viewCustomer_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomersUi\viewCustomer_uc.Designer.cs">
+      <DependentUpon>viewCustomer_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\addEmp_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\addEmp_uc.Designer.cs">
+      <DependentUpon>addEmp_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\employees_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\employees_uc.Designer.cs">
+      <DependentUpon>employees_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updateEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\updateEmp.Designer.cs">
+      <DependentUpon>updateEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\viewSalaries_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeUi\viewSalaries_uc.Designer.cs">
+      <DependentUpon>viewSalaries_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\loginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\loginScreen.Designer.cs">
+      <DependentUpon>loginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notifications\notifications_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Notifications\notifications_uc.Designer.cs">
+      <DependentUpon>notifications_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\actions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\actions.Designer.cs">
+      <DependentUpon>actions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addCompany.Designer.cs">
+      <DependentUpon>addCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addProducts.Designer.cs">
+      <DependentUpon>addProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addProductType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addProductType.Designer.cs">
+      <DependentUpon>addProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addSupplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\addSupplier.Designer.cs">
+      <DependentUpon>addSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\discardProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\discardProduct.Designer.cs">
+      <DependentUpon>discardProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editCompany.Designer.cs">
+      <DependentUpon>editCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editSupplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editSupplier.Designer.cs">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\orderDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\orderDetails.Designer.cs">
+      <DependentUpon>orderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\orderProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\orderProducts.Designer.cs">
+      <DependentUpon>orderProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\popUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\popUpForm.Designer.cs">
+      <DependentUpon>popUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\productDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\productDetails.Designer.cs">
+      <DependentUpon>productDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\purchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\purchase.Designer.cs">
+      <DependentUpon>purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\returnProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\returnProducts.Designer.cs">
+      <DependentUpon>returnProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editprodoductType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsUi\editprodoductType.Designer.cs">
+      <DependentUpon>editprodoductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReceptionistUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReceptionistUi.Designer.cs">
+      <DependentUpon>ReceptionistUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Receptionist\ViewEmployees_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Receptionist\ViewEmployees_uc.Designer.cs">
+      <DependentUpon>ViewEmployees_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\MainReportPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\MainReportPage.Designer.cs">
+      <DependentUpon>MainReportPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\addService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\addService.Designer.cs">
+      <DependentUpon>addService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\addServiceProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\addServiceProducts.Designer.cs">
+      <DependentUpon>addServiceProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\serviceDetails_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\serviceDetails_uc.Designer.cs">
+      <DependentUpon>serviceDetails_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\serviceType_uc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\serviceType_uc.Designer.cs">
+      <DependentUpon>serviceType_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\typeUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\typeUpdate.Designer.cs">
+      <DependentUpon>typeUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\updateServiceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\updateServiceDetails.Designer.cs">
+      <DependentUpon>updateServiceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ServicesUi\updateServiceProducts_uc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ServicesUi\updateServiceProducts_uc.Designer.cs">
+      <DependentUpon>updateServiceProducts_uc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utils.cs" />
+    <Compile Include="validations.cs" />
+    <EmbeddedResource Include="CrystalReports\CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CrystalReport3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CrystalReport4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CrystalReport5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport5.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Profit_Loss.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Profit_Loss.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\AppointmentUi\addAppointment.resx">
+      <DependentUpon>addAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AppointmentUi\updateAppointment.resx">
+      <DependentUpon>updateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AppointmentUi\viewAppointments.resx">
+      <DependentUpon>viewAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\center_uc.resx">
+      <DependentUpon>center_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\addCustomerTypes_uc.resx">
+      <DependentUpon>addCustomerTypes_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\addCustomer_uc.resx">
+      <DependentUpon>addCustomer_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\updateCustomerType.resx">
+      <DependentUpon>updateCustomerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\generateSalaries.resx">
+      <DependentUpon>generateSalaries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\markAttendance_uc.resx">
+      <DependentUpon>markAttendance_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\updateAttendance_uc.resx">
+      <DependentUpon>updateAttendance_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\updtAttendPopUp.resx">
+      <DependentUpon>updtAttendPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\userRoles_uc.resx">
+      <DependentUpon>userRoles_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\updateCustomer.resx">
+      <DependentUpon>updateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\updateCustomer_uc.resx">
+      <DependentUpon>updateCustomer_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\viewCustomerTypes_uc.resx">
+      <DependentUpon>viewCustomerTypes_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomersUi\viewCustomer_uc.resx">
+      <DependentUpon>viewCustomer_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\addEmp_uc.resx">
+      <DependentUpon>addEmp_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\employees_uc.resx">
+      <DependentUpon>employees_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\updateEmp.resx">
+      <DependentUpon>updateEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmployeeUi\viewSalaries_uc.resx">
+      <DependentUpon>viewSalaries_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\loginScreen.resx">
+      <DependentUpon>loginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notifications\notifications_uc.resx">
+      <DependentUpon>notifications_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\actions.resx">
+      <DependentUpon>actions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\addCompany.resx">
+      <DependentUpon>addCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\addProducts.resx">
+      <DependentUpon>addProducts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\addProductType.resx">
+      <DependentUpon>addProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\addSupplier.resx">
+      <DependentUpon>addSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\discardProduct.resx">
+      <DependentUpon>discardProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\editCompany.resx">
+      <DependentUpon>editCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\editprodoductType.resx">
+      <DependentUpon>editprodoductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\editSupplier.resx">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\orderDetails.resx">
+      <DependentUpon>orderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\orderProducts.resx">
+      <DependentUpon>orderProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\popUpForm.resx">
+      <DependentUpon>popUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\productDetails.resx">
+      <DependentUpon>productDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\purchase.resx">
+      <DependentUpon>purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsUi\returnProducts.resx">
+      <DependentUpon>returnProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReceptionistUi.resx">
+      <DependentUpon>ReceptionistUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Receptionist\ViewEmployees_uc.resx">
+      <DependentUpon>ViewEmployees_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\MainReportPage.resx">
+      <DependentUpon>MainReportPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\addService.resx">
+      <DependentUpon>addService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\addServiceProducts.resx">
+      <DependentUpon>addServiceProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\serviceDetails_uc.resx">
+      <DependentUpon>serviceDetails_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\serviceType_uc.resx">
+      <DependentUpon>serviceType_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\typeUpdate.resx">
+      <DependentUpon>typeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\updateServiceDetails.resx">
+      <DependentUpon>updateServiceDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ServicesUi\updateServiceProducts_uc.resx">
+      <DependentUpon>updateServiceProducts_uc.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pink Luxury Beauty Salon Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pink Luxury Beauty Salon Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pink Luxury Beauty Salon Logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pink Luxury Beauty Salon Logo %282%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
